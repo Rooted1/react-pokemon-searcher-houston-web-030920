@@ -2,12 +2,24 @@ import React from 'react'
 import { Card } from 'semantic-ui-react'
 
 class PokemonCard extends React.Component {
+  // create a state variable showFront (bool)
+
+
+
+  // create handleShow to handle image onclick
+  // update showFront to !bool
+
   render() {
+    // if showFront === true, render front image
+    // {const imgUrl = showFront === true ? 'frontUrl' : 'backUrl'}
+    // <img alt="oh no!" src={imgUrl}/>
     return (
       <Card>
         <div>
           <div className="image">
-            <img alt="oh no!" />
+          // pass handleShow to handle click to image
+
+            <img alt="oh no!" src='{imgUrl}'/>
           </div>
           <div className="content">
             <div className="header">POKEMON NAME HERE</div>
