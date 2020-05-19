@@ -2,32 +2,31 @@ import React from 'react'
 import { Card } from 'semantic-ui-react'
 
 class PokemonCard extends React.Component {
-  // create a state variable showFront (bool)
+  state = {
+    showFront: true
+  }
 
-
-
-  // create handleShow to handle image onclick
-  // update showFront to !bool
+  handleShow = () => {
+    this.setState({showFront: !this.state.showFront})
+  }
 
   render() {
-    // if showFront === true, render front image
-    // {const imgUrl = showFront === true ? 'frontUrl' : 'backUrl'}
-    // <img alt="oh no!" src={imgUrl}/>
+    const imgUrl = this.state.showFront === true ? this.props.pokemon.sprites.front : this.props.pokemon.sprites.back
+    const hp = this.props.pokemon.stats.filter(stat => stat.name === 'hp')
+
     return (
       <Card>
         <div>
           <div className="image">
-          // pass handleShow to handle click to image
-
-            <img alt="oh no!" src='{imgUrl}'/>
+            <img alt="oh no!" src={imgUrl} onClick={this.handleShow}/>
           </div>
           <div className="content">
-            <div className="header">POKEMON NAME HERE</div>
+            <div className="header">{this.props.pokemon.name}</div>
           </div>
           <div className="extra content">
             <span>
               <i className="icon heartbeat red" />
-              POKEMON HP HERE hp
+              {hp[0].value} hp
             </span>
           </div>
         </div>
